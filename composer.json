@@ -1,0 +1,30 @@
+{
+  "name": "anthill/queue-test",
+  "description": "Simple to use mutex implementation that can use flock, memcache, memcached, mysql or redis for locking",
+  "homepage" : "https://github.com/xxx/xxxx",
+  "keywords" : ["tests", "queue", "locking", "flock", "memcache", "memcached", "mysql", "redis"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ivan Pyankov",
+      "email": "unit.1985@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "QueueTests": "src/"
+    }
+  },
+  "require": {
+    "symfony/stopwatch": "3.0.*@dev",
+    "videlalvaro/php-amqplib": "2.4.*@dev",
+    "nmred/kafka-php": "dev-master",
+    "php": ">=5.3.0"
+  },
+  "suggest" : {
+    "predis/predis" : "Create mutex using Predis (client library for Redis)",
+    "ext-memcache": "Create mutex using memcache extension",
+    "ext-memcached": "Create mutex using memcached extension",
+    "ext-pdo_mysql": "Create mutex using MySql"
+  }
+}
