@@ -19,7 +19,8 @@
     "symfony/stopwatch": "3.0.*@dev",
     "videlalvaro/php-amqplib": "2.4.*@dev",
     "nmred/kafka-php": "dev-master",
-    "php": ">=5.3.0"
+    "php": ">=5.3.0",
+    "bunny/bunny": "^0.2.2"
   },
   "suggest" : {
     "predis/predis" : "Create mutex using Predis (client library for Redis)",

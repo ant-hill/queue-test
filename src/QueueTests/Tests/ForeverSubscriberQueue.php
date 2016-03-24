@@ -32,9 +32,9 @@ class ForeverSubscriberQueue
             $i++;
         }
         $stopwatch->stop("publish");
-
-        echo "publish " . $stopwatch->getEvent("publish")->getDuration() / 1000 . ' second $i: ' . $i . " memory: " . $stopwatch->getEvent("publish")->getMemory() / 1024 / 1024 . "\n\n";
-
+        $operationPerSec = round($i / $stopwatch->getEvent("publish")->getDuration() * 1000, 4);
+        echo "publish " . $stopwatch->getEvent("publish")->getDuration() / 1000 . ' second $i: ' . $i . " op/s {$operationPerSec} memory: " . $stopwatch->getEvent("publish")->getMemory() / 1024 / 1024 . "\n\n";
+        $q = $i;
         $stopwatch->start("subscribe");
         while ($x = $queue->subscribe($testMessage)) {
 //            var_dump($x);
@@ -42,8 +42,9 @@ class ForeverSubscriberQueue
         }
         $stopwatch->stop("subscribe");
 
+        $operationPerSec = round(($q - $i) / $stopwatch->getEvent("subscribe")->getDuration() * 1000, 4);
 
-        echo "subscribe " . $stopwatch->getEvent("subscribe")->getDuration() / 1000 . ' second $i: ' . $i . " memory: " . $stopwatch->getEvent("subscribe")->getMemory() / 1024 / 1024 . "\n\n";
+        echo "subscribe " . $stopwatch->getEvent("subscribe")->getDuration() / 1000 . ' second $i: ' . $i . " op/s {$operationPerSec} memory: " . $stopwatch->getEvent("subscribe")->getMemory() / 1024 / 1024 . "\n\n";
     }
 
 }

@@ -11,14 +11,21 @@ include_once __DIR__ . "/vendor/autoload.php";
 //var_dump(\QueueTests\Helpers\QueueHelper::getQueue(10));
 //die;
 //$max = 1000000;
+//echo "Bunny \n";
+//(new \QueueTests\Tests\ForeverSubscriberQueue())->run(new \QueueTests\Queue\Queue(new \QueueTests\QueueDriver\BunnyDriver(),'bunny'),$max);
+//
 //echo "Rabbit \n";
-//(new \QueueTests\Tests\ForeverSubscriberQueue())->run(new \QueueTests\Queue\Queue(new \QueueTests\QueueDriver\RabbitMQDriver(),"asdqwe"),$max);
+//(new \QueueTests\Tests\ForeverSubscriberQueue())->run(new \QueueTests\Queue\Queue(new \QueueTests\QueueDriver\RabbitMQDriver(),'ampqlib'),$max);
+//
+//echo "AMPQ-ext \n";
+//(new \QueueTests\Tests\ForeverSubscriberQueue())->run(new \QueueTests\Queue\Queue(new \QueueTests\QueueDriver\RabbitMQPeclDriver(),'AMPQ-ext'),$max);
+//
 //
 //echo "Redis \n";
 //(new \QueueTests\Tests\ForeverSubscriberQueue())->run(new \QueueTests\Queue\Queue(new \QueueTests\QueueDriver\RedisDriver(),"asdqwe"),$max);
 
-$max = 10;
-(new \QueueTests\Tests\ForeverSubscriberQueue())->run(new \QueueTests\Queue\Queue(new \QueueTests\QueueDriver\KafkaDriver(),"asdqwe"),$max);
+//$max = 10;
+//(new \QueueTests\Tests\ForeverSubscriberQueue())->run(new \QueueTests\Queue\Queue(new \QueueTests\QueueDriver\KafkaDriver(),"asdqwe"),$max);
 
 // todo: think about channel name
 /*
